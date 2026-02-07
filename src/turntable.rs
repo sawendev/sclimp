@@ -64,6 +64,10 @@ impl<'a> Turntable<'a> {
 	pub fn mute(&self) { self.sink.set_volume(0.0) }
 	pub fn unmute(&self) { self.sink.set_volume(self.vol as f32 / 100.0) }
 	
+	pub fn skip(&self) {
+		self.sink.skip_one();
+	}
+	
 	pub fn stop(&mut self) {
 		self.sink.stop();
 		self.queue.clear();

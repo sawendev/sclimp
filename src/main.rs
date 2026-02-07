@@ -65,6 +65,7 @@ fn main() {
 			("Display the queue", |_,_,q| q.iter().for_each(|s| println!("{}", s.name))),
 			("Play all songs in the queue", |_,t,q| t.play_queue(q.clone())),
 			("Play random song from queue", |_,t,q| t.play_song(q.choose(&mut rand::rng()).unwrap())),
+			("Skip the current song", |_,t,_| t.skip()),
 			("Stop the music", |_,t,_| t.stop()),
 			("Change the music volume", |_,t,_| {
 				println!();
